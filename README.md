@@ -18,10 +18,6 @@ Beervana has all the functions of a social media site. This includes following u
 
 This is a full stack application with the front-end utilizing react and redux. The back-end features a fully built API utilizing data from openbeerDB. All of the routes were built using restful principles and are served through node.js and express.js. 
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 
 ## Available Scripts
 
