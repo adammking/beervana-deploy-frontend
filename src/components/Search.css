@@ -1,0 +1,32 @@
+#searchform-name{
+    width: 40%;
+    margin: auto;
+
+}
+
+#searchform-state{
+    width: 40%;
+    margin: auto;
+}
+
+#searchform-country{
+    width: 40%;
+    margin: auto;
+}
+
+#brewery-search {
+  background: url("../images/daniel-vogel-brewery.jpg") no-repeat center;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+  justify-content: center;
+}
+
+#beer-search {
+background: url("../images/rhett-wesley-beers.jpg") no-repeat center;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+  justify-content: center;
+  margin: auto;
+}
