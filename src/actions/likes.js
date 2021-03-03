@@ -8,14 +8,14 @@ REMOVE_LIKE
 
 } from "./types";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/users"
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/"
 const token = localStorage.getItem("token")
 
 export function getLikesFromApi(username, postId){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}/${username}/posts/${postId}/likes`, 
+                                      url: `${API_URL}users/${username}/posts/${postId}/likes`, 
                                       headers: {
                                         Authorization: `Bearer ${token}` 
                                       }})
@@ -34,7 +34,7 @@ export function addLikesWithApi(username, postId){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "POST",
-                                      url: `${API_URL}/${username}/posts/${postId}/likes`, 
+                                      url: `${API_URL}users/${username}/posts/${postId}/likes`, 
                                       data: {},
                                       headers: {
                                         Authorization: `Bearer ${token}` 
@@ -55,7 +55,7 @@ export function deleteLikesFromApi(username, postId){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "DELETE",
-                                      url: `${API_URL}/${username}/posts/${postId}/likes`, 
+                                      url: `${API_URL}users/${username}/posts/${postId}/likes`, 
                                       data: {},
                                       headers: {
                                         Authorization: `Bearer ${token}` 

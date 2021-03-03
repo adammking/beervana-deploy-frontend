@@ -10,14 +10,14 @@ UPDATE_BEER_IN_BREWERY
 
 } from "./types" 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/breweries"
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/"
 
 
 export function getBreweryFromApi(id){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}/${id}`, 
+                                      url: `${API_URL}breweries/${id}`, 
                                       headers: {
                                           Authorization: `Bearer ${token}` 
                                       }})
@@ -37,7 +37,7 @@ export function searchBreweriesFromApi(data){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}/`, 
+                                      url: `${API_URL}breweries/`, 
                                       params: data,
                                       headers: {
                                           Authorization: `Bearer ${token}` 
@@ -59,7 +59,7 @@ export function updateBreweryFromApi(id, data){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "PATCH",
-                                      url: `${API_URL}/${id}`, 
+                                      url: `${API_URL}breweries/${id}`, 
                                       data: data,
                                       headers: {
                                           Authorization: `Bearer ${token}` 
@@ -79,7 +79,7 @@ export function addBreweryFromApi(data){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "POST",
-                                      url: `${API_URL}`, 
+                                      url: `${API_URL}breweries`, 
                                       data: data,
                                       headers: {
                                           Authorization: `Bearer ${token}` 
@@ -99,7 +99,7 @@ export function addBeerToBreweryWithApi(id, data){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "POST",
-                                      url: `${API_URL}/${id}/beers`, 
+                                      url: `${API_URL}breweries/${id}/beers`, 
                                       data: data,
                                       headers: {
                                           Authorization: `Bearer ${token}` 
@@ -119,7 +119,7 @@ export function updateBeerInBreweryFromApi(id, name, data){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "PATCH",
-                                      url: `${API_URL}/${id}beers/${name}`, 
+                                      url: `${API_URL}breweries/${id}beers/${name}`, 
                                       data: data,
                                       headers: {
                                           Authorization: `Bearer ${token}` 

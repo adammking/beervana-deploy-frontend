@@ -10,14 +10,14 @@ LOG_OUT
 
 } from "./types" 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/auth"
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/"
 
 
 export function getTokenFromApi(data){
     return async function(dispatch) {
         
         const response = await axios({method: "POST",
-                                      url: `${API_URL}/token`, 
+                                      url: `${API_URL}auth/token`, 
                                       data: {username: data.username, 
                                              password: data.password},
                                     })
@@ -39,7 +39,7 @@ function getToken(data) {
 export function registerUserWithApi(data){
     return async function(dispatch) {
         const response = await axios({method: "POST",
-                                      url: `${API_URL}/register`, 
+                                      url: `${API_URL}auth/register`, 
                                       data: {username: data.username, 
                                              password: data.password,
                                              firstName: data.firstName,

@@ -7,13 +7,13 @@ REMOVE_USER
 
 } from "./types";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/users"
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/"
 
 export function getUserFromApi(username){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}/${username}`, 
+                                      url: `${API_URL}users/${username}`, 
                                       headers: {
                                         Authorization: `Bearer ${token}` 
                                       }})
@@ -33,7 +33,7 @@ export function getAllUsersFromApi(){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}`, 
+                                      url: `${API_URL}users`, 
                                       headers: {
                                         Authorization: `Bearer ${token}` 
                                       }})
@@ -53,7 +53,7 @@ export function updateUserFromApi(username, data){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "PATCH",
-                                      url: `${API_URL}/${username}`, 
+                                      url: `${API_URL}users/${username}`, 
                                       data: data,
                                       headers: {
                                         Authorization: `Bearer ${token}` 
@@ -73,7 +73,7 @@ export function deleteUserFromApi(username){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "DELETE",
-                                      url: `${API_URL}/${username}`, 
+                                      url: `${API_URL}users/${username}`, 
                                       data: username,
                                       headers: {
                                         Authorization: `Bearer ${token}` 

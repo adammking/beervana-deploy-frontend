@@ -9,13 +9,13 @@ DELETE_POST,
 
 } from "./types";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/users"
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/"
 
 export function getUserPostsFromApi(username){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}/${username}/posts`, 
+                                      url: `${API_URL}users/${username}/posts`, 
                                       headers: {
                                         Authorization: `Bearer ${token}` 
                                       }})
@@ -35,7 +35,7 @@ export function getSinglePostFromApi(username, postId){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}/${username}/posts/${postId}`, 
+                                      url: `${API_URL}users/${username}/posts/${postId}`, 
                                       headers: {
                                         Authorization: `Bearer ${token}` 
                                       }})
@@ -54,7 +54,7 @@ export function addPostWithApi(username, data){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "POST",
-                                      url: `${API_URL}/${username}/posts`, 
+                                      url: `${API_URL}users/${username}/posts`, 
                                       data: data,
                                       headers: {
                                         Authorization: `Bearer ${token}` 
@@ -74,7 +74,7 @@ export function deletePostsFromApi(username, postId){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "DELETE",
-                                      url: `${API_URL}/${username}/posts/${postId}`, 
+                                      url: `${API_URL}users/${username}/posts/${postId}`, 
                                       data: {id: postId},
                                       headers: {
                                         Authorization: `Bearer ${token}` 

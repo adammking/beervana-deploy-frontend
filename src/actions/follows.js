@@ -9,7 +9,7 @@ GET_FOLLOWING
 
 } from "./types";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/users"
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/"
 const token = localStorage.getItem("token")
 
 
@@ -18,7 +18,7 @@ export function getFollowersFromApi(username){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}/${username}/followers`, 
+                                      url: `${API_URL}users/${username}/followers`, 
                                       headers: {
                                         Authorization: `Bearer ${token}` 
                                       }})
@@ -37,7 +37,7 @@ export function getFollowingFromApi(username){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}/${username}/following`, 
+                                      url: `${API_URL}users/${username}/following`, 
                                       headers: {
                                         Authorization: `Bearer ${token}` 
                                       }})
@@ -56,7 +56,7 @@ export function addFollowWithApi(username, id){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "POST",
-                                      url: `${API_URL}/${username}/follow`, 
+                                      url: `${API_URL}users/${username}/follow`, 
                                       data: {id: id},
                                       headers: {
                                         Authorization: `Bearer ${token}` 
@@ -76,7 +76,7 @@ export function deleteFollowFromApi(username, id){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "DELETE",
-                                      url: `${API_URL}/${username}/follow`, 
+                                      url: `${API_URL}users/${username}/follow`, 
                                       data: {id: id},
                                       headers: {
                                         Authorization: `Bearer ${token}` 

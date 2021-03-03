@@ -6,13 +6,13 @@ DELETE_TAG
 
 } from "./types";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/users"
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/"
 const token = localStorage.getItem("token")
 
 export function addTagWithApi(username, data){
     return async function(dispatch) {
         const response = await axios({method: "POST",
-                                      url: `${API_URL}/${username}/tags`, 
+                                      url: `${API_URL}users/${username}/tags`, 
                                       data: data,
                                       headers: {
                                         Authorization: `Bearer ${token}` 
@@ -31,7 +31,7 @@ function addTag(data){
 export function deleteTagsFromApi(username, tagId, data){
     return async function(dispatch) {
         const response = await axios({method: "DELETE",
-                                      url: `${API_URL}/${username}/tags/${tagId}`, 
+                                      url: `${API_URL}users/${username}/tags/${tagId}`, 
                                       data: data,
                                       headers: {
                                         Authorization: `Bearer ${token}` 

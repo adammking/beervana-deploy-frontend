@@ -8,13 +8,13 @@ DELETE_REVIEW
 
 } from "./types";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/users"
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/"
 
 export function getUserReviewsFromApi(username){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}/${username}/reviews`, 
+                                      url: `${API_URL}users/${username}/reviews`, 
                                       headers: {
                                         Authorization: `Bearer ${token}` 
                                       }})
@@ -33,7 +33,7 @@ export function getSingleReviewFromApi(username, reviewId){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
-                                      url: `${API_URL}/${username}/posts/${reviewId}`, 
+                                      url: `${API_URL}users/${username}/posts/${reviewId}`, 
                                       headers: {
                                         Authorization: `Bearer ${token}` 
                                       }})
@@ -52,7 +52,7 @@ export function addReviewWithApi(username, data){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "POST",
-                                      url: `${API_URL}/${username}/reviews`, 
+                                      url: `${API_URL}users/${username}/reviews`, 
                                       data: data,
                                       headers: {
                                         Authorization: `Bearer ${token}` 
@@ -72,7 +72,7 @@ export function deleteReviewsFromApi(username, reviewId, data){
     return async function(dispatch) {
         const token = localStorage.getItem("token")
         const response = await axios({method: "DELETE",
-                                      url: `${API_URL}/${username}/reviews/${reviewId}`, 
+                                      url: `${API_URL}users/${username}/reviews/${reviewId}`, 
                                       data: data,
                                       headers: {
                                         Authorization: `Bearer ${token}` 
