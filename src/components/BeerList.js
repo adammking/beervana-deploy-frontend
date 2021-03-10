@@ -1,13 +1,13 @@
 import React from 'react';
 import Beer from "./Beer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { searchBeersFromApi } from '../actions/beers';
 import Search from "./Search"
 
 function BeerList() {
 
     const dispatch = useDispatch();
-    const beers = useSelector(st => st.beers.beers) ;
+    const beers = useSelector(st => st.beers.beers, shallowEqual) ;
 
     
 

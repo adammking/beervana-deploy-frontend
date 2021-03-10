@@ -1,16 +1,15 @@
 import React, { useEffect }from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getFollowingFromApi, deleteFollowFromApi } from '../actions/follows';
-import { decode } from "jsonwebtoken"
 
 function FollowingList({username}) {
     
     const dispatch = useDispatch();
-    const following = useSelector(st => st.follows.following) ;
+    const following = useSelector(st => st.follows.following, shallowEqual) ;
 
     useEffect(function() {
         dispatch(getFollowingFromApi(username))
-    }, [dispatch])
+    }, [dispatch, username])
 
     function unFollow(id) {
         dispatch(deleteFollowFromApi(username, id))

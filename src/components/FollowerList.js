@@ -1,20 +1,19 @@
 import React, { useEffect }from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { addFollowWithApi, getFollowersFromApi, deleteFollowFromApi, getFollowingFromApi } from '../actions/follows';
-import { decode } from "jsonwebtoken"
 
 function FollowerList({username}) {
     
     const dispatch = useDispatch();
-    const followers = useSelector(st => st.follows.followers) 
-    const following = useSelector(st => st.follows.following)
+    const followers = useSelector(st => st.follows.followers, shallowEqual) 
+    const following = useSelector(st => st.follows.following, shallowEqual)
     const followingIds = new Set()
     following.forEach(data => followingIds.add(data.users_being_followed_id))
 
     useEffect(function() {
         dispatch(getFollowersFromApi(username))
         dispatch(getFollowingFromApi(username))
-    }, [dispatch, following.length, followers.length])
+    }, [dispatch, following.length, followers.length, username])
 
 
     function addFollow(id) {

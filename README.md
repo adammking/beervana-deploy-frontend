@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# Beervana
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Site deployed through surge at: beervana.surge.sh
+
+# Description: 
+
+Social website for all things craft beer. Beervana allows user to create a profile, follow other users, make posts, and write reviews about their favorite beers or breweries. Beervana also allows users to search the database for specific breweries and beers. 
+
+# User Flow
+
+Initially users will be prompted to login or register. Once this is completed they will be taken to their profile, that shows their followers, the users they are following, their posts, and reviews. The user can then utilize the navbar to search through breweries or beers, while also being able to view a list of other users on the website to follow. 
+
+# Features
+
+Beervana has all the functions of a social media site. This includes following users, liking posts, and viewing other users profiles. Future features will include find a brewery, more detailed reviews of beers, along with categories and styles for beers. 
+
+# Stack
+
+This is a full stack application with the front-end utilizing react and redux. The back-end features a fully built API utilizing data from openbeerDB. All of the routes were built using restful principles and are served through node.js and express.js. 
 
 ## Available Scripts
 

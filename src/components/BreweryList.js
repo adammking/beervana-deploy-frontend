@@ -1,6 +1,6 @@
 import Brewery from "./Brewery";
 import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { searchBreweriesFromApi } from '../actions/brewery';
 import Search from "./Search"
 
@@ -14,7 +14,7 @@ function BreweryList() {
     }
     
 
-    const breweries = useSelector(st => st.brewery.breweries) ;
+    const breweries = useSelector(st => st.brewery.breweries, shallowEqual) ;
 
 
     return (

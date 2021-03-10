@@ -36,7 +36,7 @@ function Login() {
         } else {
             history.push("/login")
         }
-    }, [auth])
+    }, [auth, history, token])
     
     
     

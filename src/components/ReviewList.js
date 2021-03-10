@@ -1,9 +1,8 @@
 
 import React, { useEffect, useState }from "react";
 import Review from "./Review"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getUserReviewsFromApi, addReviewWithApi, deleteReviewsFromApi } from '../actions/reviews';
-import { decode } from "jsonwebtoken"
 import NewPostRevForm from "./NewPostRevForm"
 import './ReviewList.css'
 
@@ -14,7 +13,7 @@ function ReviewList({username}) {
 
     
     const dispatch = useDispatch();
-    const reviews = useSelector(st => st.reviews.reviews);
+    const reviews = useSelector(st => st.reviews.reviews, shallowEqual);
 
     const addFields = (<>
         <NewPostRevForm add={addReview}/> 
@@ -34,7 +33,7 @@ function ReviewList({username}) {
 
     useEffect(function() {
         dispatch(getUserReviewsFromApi(username))
-    }, [dispatch, reviews.length])
+    }, [dispatch, reviews.length, username])
 
     
 

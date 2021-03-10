@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState }from "react";
 import Post from "./Post"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getUserPostsFromApi, addPostWithApi, deletePostsFromApi } from '../actions/posts';
 import { addLikesWithApi, getLikesFromApi, deleteLikesFromApi } from '../actions/likes';
 import { decode } from "jsonwebtoken"
@@ -15,8 +15,8 @@ function PostList({username}) {
     
     const dispatch = useDispatch();
     const { id } = decode(localStorage.getItem("token"))
-    const posts = useSelector(st => st.posts.posts);
-    const likes = useSelector(st => st.likes.likes)
+    const posts = useSelector(st => st.posts.posts, shallowEqual);
+    const likes = useSelector(st => st.likes.likes, shallowEqual)
     const likeSet = new Set()
 
     const addFields = (<>
@@ -48,12 +48,12 @@ function PostList({username}) {
 
     useEffect(function() {
         dispatch(getUserPostsFromApi(username))
-    }, [dispatch, posts.length])
+    }, [dispatch, posts.length, username])
 
 
     useEffect(function() {
         dispatch(getLikesFromApi(username, id))
-    }, [dispatch])
+    }, [dispatch, id, username])
 
 
 
