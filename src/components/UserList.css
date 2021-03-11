@@ -1,8 +1,16 @@
-#users {
-    width: 30%
+
+
+#full-card {
+    background-color: black;
+    height:100px;
+    width: 200px
 }
 
-#user-list {
-    margin: auto;
-    
+#link {
+    text-decoration: none;
+    color: #dba622;
+}
+
+#link:hover {
+    color:#ffd059;
 }

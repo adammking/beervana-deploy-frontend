@@ -79,7 +79,7 @@ function PostList({username}) {
             {posts.length > 0 ? 
             <ul className="list-group">
                 {posts.map(data => (
-                    <li className="list-group-item m-2" key={data.id}><Post deletePost={() => deletePost(data.id)} 
+                    <li id="post" className="list-group-item m-2" key={data.id}><Post deletePost={() => deletePost(data.id)} 
                                             title={data.title} 
                                             body={data.body} 
                                             postId={data.id} 

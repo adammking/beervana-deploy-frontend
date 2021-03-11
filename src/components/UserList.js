@@ -35,19 +35,22 @@ function UserList() {
 
 
     return (
-        <div className="container pb-5">
+        <div id="top-container" className="container pb-5">
             <h3>Users:</h3>
             {users.length > 0 ? 
-            <ul id="user-list" className="list-group m-3">
+            <div className="row justify-content-center">
                 {users.map(data => (
-                    <li id="users" className="list-group-item my-2"key={data.id}><Link to={`users/${data.username}`}>{data.username}</Link>
-                    { followingIds.has(data.id) ? 
-                        <button className="btn btn-warning btn-sm m-2" onClick={() => unFollow(data.id)}>Unfollow</button> : 
-                        <button className="btn btn-warning btn-sm" onClick={() => addFollow(data.id)}>Follow</button>
-                    }
-                    </li>
+                    <div id="full-card" className="card col-4 m-2" key={data.id}>
+                        <div className="card-body">
+                            <h5 className="card-title"><Link id="link" to={`users/${data.username}`}>{data.username}</Link></h5>
+                                { followingIds.has(data.id) ? 
+                                    <button className="btn btn-warning btn-sm m-2" onClick={() => unFollow(data.id)}>Unfollow</button> : 
+                                    <button className="btn btn-warning btn-sm m-2" onClick={() => addFollow(data.id)}>Follow</button>
+                                }
+                        </div>
+                    </div>              
                 ))}
-            </ul>
+            </div>
             : <h5>No Users</h5>}
         </div>
     )

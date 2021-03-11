@@ -1,4 +1,5 @@
 import React, { useEffect }from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { addFollowWithApi, getFollowersFromApi, deleteFollowFromApi, getFollowingFromApi } from '../actions/follows';
 
@@ -30,15 +31,19 @@ function FollowerList({username}) {
         <div>
             <h3>Followers:</h3>
             {followers.length > 0 ? 
-            <ul className="list-group">
+             <div className="row justify-content-center">
                 {followers.map(data => (
-                    <li className="list-group-item" key={data.users_following_id}>{data.username}
-                    {followingIds.has(data.users_following_id) ? 
-                    <button className="btn btn-warning btn-sm m-2" onClick={() => unFollow(data.users_following_id)}>Unfollow</button> : 
-                    <button className="btn btn-warning btn-sm m-2" onClick={() => addFollow(data.users_following_id)}>Follow</button>}
-                    </li>
+                    <div id="full-card" className="card col-4 m-2" key={data.users_following_id}>
+                        <div className="card-body">
+                            <h5 className="card-title"><Link id="link" to={`users/${data.username}`}>{data.username}</Link></h5>
+                                { followingIds.has(data.users_following_id) ? 
+                                    <button className="btn btn-warning btn-sm m-2" onClick={() => unFollow(data.users_following_id)}>Unfollow</button> : 
+                                    <button className="btn btn-warning btn-sm m-2" onClick={() => addFollow(data.users_following_id)}>Follow</button>
+                                }
+                        </div>
+                    </div>              
                 ))}
-            </ul>
+            </div>
             : <h5>No Followers</h5>}
         </div>
     )

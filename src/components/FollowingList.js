@@ -1,4 +1,5 @@
 import React, { useEffect }from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getFollowingFromApi, deleteFollowFromApi } from '../actions/follows';
 
@@ -22,13 +23,16 @@ function FollowingList({username}) {
         <div>
             <h3>Following:</h3>
             {following.length > 0 ? 
-            <ul className="list-group">
+            <div className="row justify-content-center">
                 {following.map(data => (
-                    <li className="list-group-item" key={data.users_being_followed_id}>{data.username}
-                    <button className="btn btn-warning btn-sm m-2" onClick={() => unFollow(data.users_being_followed_id)}>Unfollow</button>
-                    </li>
+                    <div id="full-card" className="card col-4 m-2" key={data.users_being_followed_id}>
+                        <div className="card-body">
+                            <h5 className="card-title"><Link id="link" to={`users/${data.username}`}>{data.username}</Link></h5> 
+                                <button className="btn btn-warning btn-sm m-2" onClick={() => unFollow(data.users_being_followed_id)}>Unfollow</button> 
+                        </div>
+                    </div>              
                 ))}
-            </ul>
+            </div>
             : <h5>Not Following</h5>}
         </div>
     )
