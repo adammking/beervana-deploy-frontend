@@ -15,6 +15,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/"
 
 export function getFollowersFromApi(username){
     return async function(dispatch) {
+        console.log(username)
         const token = localStorage.getItem("token")
         const response = await axios({method: "GET",
                                       url: `${API_URL}users/${username}/followers`, 

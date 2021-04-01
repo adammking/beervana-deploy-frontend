@@ -2,8 +2,6 @@
 
 #full-card {
     background-color: black;
-    height:100px;
-    width: 200px
 }
 
 #link {
@@ -13,4 +11,8 @@
 
 #link:hover {
     color:#ffd059;
+}
+
+#top-container {
+    padding-bottom: 100vh;
 }
