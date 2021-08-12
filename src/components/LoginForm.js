@@ -1,50 +1,45 @@
 import React, { useState } from "react";
+import { useFormik } from 'formik'
 import "./LoginForm.css"
+import Alert from "./Alert"
 
 
 function LoginForm({login}) {
 
-    const [loginData, setLoginData] = useState({
-        username: "",
-        password: ""
-    });
+    
 
-    function handleChange(evt) {
-        const {name, value} = evt.target;
-        setLoginData(data => ({
-        ...data,
-        [name]: value
-        }));
-    }
-
-
-    function handleSubmit(evt) {
-        evt.preventDefault();
-        login(loginData);
-    }
+    const formik = useFormik({
+      initialValues: {
+        username: "", 
+        password: "",
+      }, 
+      onSubmit: values => {
+        login(values)
+      }
+    })
 
 
     return (
 
 <div className="container">   
-<form onSubmit={handleSubmit}> 
+<form onSubmit={formik.handleSubmit}> 
   <div className="mb-3">
     <input id="loginform-username" 
-            onChange={handleChange} 
+            onChange={formik.handleChange} 
             aria-describedby="username" 
             name="username" 
             className="form-control" 
-            value={loginData.username}
+            value={formik.values.username}
             placeholder="Username"/>
   </div>
 
   <div className="mb-3">
     <input type="password" 
     className="form-control" 
-    onChange={handleChange} 
+    onChange={formik.handleChange} 
     id="loginform-password" 
     name="password" 
-    value={loginData.password} 
+    value={formik.values.password} 
     placeholder="Password"/>
   </div>
   <button type="submit" className="btn btn-warning btn-sm">Login</button>
