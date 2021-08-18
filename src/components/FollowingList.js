@@ -21,11 +21,11 @@ function FollowingList({username}) {
 
     return (
         <div>
-            <h3>Following:</h3>
+            <h3>Following</h3>
             {following.length > 0 ? 
             <div className="row justify-content-center">
                 {following.map(data => (
-                    <div id="full-card" className="card col-4 m-2" key={data.users_being_followed_id}>
+                    <div id="full-card" className="card col-7 m-2" key={data.users_being_followed_id}>
                         <div className="card-body">
                             <h5 className="card-title"><Link id="link" to={`users/${data.username}`}>{data.username}</Link></h5> 
                                 <button className="btn btn-warning btn-sm m-2" onClick={() => unFollow(data.users_being_followed_id)}>Unfollow</button> 

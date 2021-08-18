@@ -23,13 +23,10 @@ function UserList() {
 
     function addFollow(id) {
         dispatch(addFollowWithApi(username, id))
-        dispatch(getFollowingFromApi(username))
-
     }
 
     function unFollow(id) {
         dispatch(deleteFollowFromApi(username, id))
-        dispatch(getFollowingFromApi(username))
     }
 
 
@@ -38,7 +35,7 @@ function UserList() {
         <div id="top-container" className="container">
             <h3>Users:</h3>
             {users.length > 0 ? 
-            <div className="row g-2 justify-content-center row-cols-1 row-cols-sm-2 row-cols-lg-3">
+            <div className="row g-2 justify-content-center row-cols-12 row-cols-sm-2 row-cols-lg-3">
                 {users.map(data => (
                     <div id="full-card" className="card border border-warning" key={data.id}>
                         <div className="card-body">

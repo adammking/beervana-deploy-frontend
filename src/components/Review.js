@@ -8,7 +8,7 @@ function Review( {id, title, body, deleteReview}) {
 
     return (
 
-<div className="card border border-3">
+<div className="card" id="review-card">
   <div className="card-header">
       <h5 className="card-title">{title}</h5>
   </div>

@@ -26,22 +26,17 @@ return(
         
 
 <div className="container">
-    <h1>{username}</h1>
-    <aside><button onClick={userLogOut} className="btn btn-danger">Logout</button></aside>
     <div className="row">
-    <div className="col-8">
+    <div className="col-12 col-md-4">
+      <h1>{username}</h1>
+      <aside><button onClick={userLogOut} className="btn btn-danger">Logout</button></aside>
+    </div>
+    <div className="col-12 col-md-4">
       <PostList username={username}/>
-      
-    </div>
-    <div className="col-sm">
-      <FollowingList username={username}/>
-    </div>
-  </div>
-  <div className="row">
-    <div className="col-8">
       <ReviewList username={username}/>
     </div>
-    <div className="col-sm">
+    <div className="col-12 col-md-4">
+      <FollowingList username={username}/>
       <FollowerList username={username}/>
     </div>
   </div>

@@ -72,7 +72,7 @@ function PostList({username}) {
 
     return (
         <div>
-            <h3>Posts:</h3>
+            <h3>Posts</h3>
             <button className="btn btn-warning btn-sm" onClick={toggleForm}>{addView ? "Cancel" : "Add Post"}</button>
             {addView ? addFields : <div></div>}
 

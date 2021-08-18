@@ -23,17 +23,16 @@ function FollowerList({username}) {
 
     function unFollow(id) {
         dispatch(deleteFollowFromApi(username, id))
-        dispatch(getFollowingFromApi(username))
     }
 
 
     return (
         <div>
-            <h3>Followers:</h3>
+            <h3>Followers</h3>
             {followers.length > 0 ? 
              <div className="row justify-content-center">
                 {followers.map(data => (
-                    <div id="full-card" className="card col-4 m-2" key={data.users_following_id}>
+                    <div id="full-card" className="card col-7 m-2" key={data.users_following_id}>
                         <div className="card-body">
                             <h5 className="card-title"><Link id="link" to={`users/${data.username}`}>{data.username}</Link></h5>
                                 { followingIds.has(data.users_following_id) ? 

@@ -25,7 +25,7 @@ function Brewery({data}) {
     <p className="card-text">{state}</p>
     <p className="card-text">{country}</p>
     <p className="card-text">{phone}</p>
-    <p className="card-text">{website}</p>
+    <a href={website} className="card-text">{website}</a>
   </div>
 </div>
     )
