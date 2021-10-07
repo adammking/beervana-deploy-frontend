@@ -14,7 +14,6 @@ function FollowingList({username}) {
 
     function unFollow(id) {
         dispatch(deleteFollowFromApi(username, id))
-        dispatch(getFollowingFromApi(username))
     }
 
 

@@ -13,7 +13,6 @@ function FollowerList({username}) {
 
     useEffect(function() {
         dispatch(getFollowersFromApi(username))
-        dispatch(getFollowingFromApi(username))
     }, [dispatch, following.length, followers.length, username])
 
 

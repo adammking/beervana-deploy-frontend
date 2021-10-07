@@ -18,7 +18,6 @@ function UserHome() {
 function userLogOut() {
     dispatch(logoutAll())
     history.push("/login")
-    console.log("Local storage is cleared")
     localStorage.clear()
 }
 

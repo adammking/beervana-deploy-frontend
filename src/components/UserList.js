@@ -17,7 +17,6 @@ function UserList() {
 
     useEffect(function() {
         dispatch(getAllUsersFromApi())
-        dispatch(getFollowingFromApi(username))
     }, [dispatch, username])
 
 

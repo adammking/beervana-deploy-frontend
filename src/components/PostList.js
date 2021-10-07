@@ -59,13 +59,10 @@ function PostList({username}) {
 
     function like(postId) {
         dispatch(addLikesWithApi(username, postId))
-        dispatch(getLikesFromApi(username, postId))
-
     }
 
     function unlike(postId) {
         dispatch(deleteLikesFromApi(username, postId))
-        dispatch(getLikesFromApi(username, postId))
     }
 
     
