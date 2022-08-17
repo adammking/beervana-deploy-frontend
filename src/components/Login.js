@@ -43,6 +43,11 @@ function Login() {
     const loginFields = (<>
         <LoginForm login={loginApi}/> 
         <aside>New User? <button className="btn btn-warning btn-sm m-2" onClick={toggleLogin}>Click Here</button>to register</aside>
+            <aside id="guest-credentials">
+            Guest Credentials:<br/>
+            Username: guest<br/>
+            Password: password
+        </aside>
         </>)
 
 
