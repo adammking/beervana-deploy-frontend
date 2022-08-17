@@ -1,8 +1,18 @@
+#guest-credentials {
+  height: 75px;
+  width: 144px;
+ background-color: black;
+ background-size: cover;
+ z-index: 20;
+ margin-right: auto;
+ margin-left: auto;
+}
+
+
 #landing-page {
-    background: url("../images/kyle-wagner-beer-closet.webp") no-repeat center;
+    background: url("../images/kyle-wagner-beer-closet.jpg") no-repeat center;
   background-size: cover;
   height: 500px;
   position: relative;
   color: #dba622;
-
 }
